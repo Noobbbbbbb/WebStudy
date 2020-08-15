@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    //map函数,对每一个数组元素进行操作   //例子，实现数组每个元素的乘2
+    let res = [1, 2, 3, 4, 5]
+    let arr = res.map(v => {
+      return v * 2
+    })
+    console.log(arr)
+    //filter函数，返回符合条件的数组    //例子 返回值大于3的数组
+    let arr1 = res.filter(v => {
+      return v > 3
+    })
+    console.log(arr1)
+
+    //reduce函数，实现元素的相加，递归操作    //对数组求和
+    let arr2 = res.reduce((v, pre) => {
+      return v + pre
+    }, 0)
+    console.log(arr2)
+  </script>
+
+</body>
+
+</html>
