@@ -20,6 +20,6 @@ class user extends school{
   }
 }
 
-const xiao =new user('华南理工大学广州学院','小明')
+const xiao =new user('华南理工大学','小明')
 xiao.showinfo()
 xiao.show()
