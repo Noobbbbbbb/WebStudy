@@ -113,7 +113,6 @@
           let index = 0
 
           //position 0的话就是头节点
-
           if (position === 0) {
             //头节点指向原头节点的指向的下一个节点
             this.head = current.next
@@ -130,26 +129,80 @@
           }
 
           this.length--
+          return true
 
         }
 
         return null
 
       }
+
+      //寻找元素下标
+
+      findIndex(el) {
+
+        //指向头节点
+        let current = this.head
+        let index = 0
+        while (current) {
+          if (el === current.el) {
+            //返回下标
+            return index
+          }
+          //遍历头节点
+          index++;
+          current = current.next
+        }
+
+        return -1
+      }
+
+      //删除指定元素
+      removeAtEl(el) {
+
+        //获取元素下标
+        let index = this.findIndex(el)
+
+        //通过下标删除
+        return this.removeEl(index)
+      }
+
+
+      //链表转数组
+      toArray() {
+        let arr = {
+          index: [],
+          data: []
+        }
+        let current = this.head
+        let index = 0
+        while (current) {
+          arr.index.push(index)
+          arr.data.push(current.el)
+          index++
+          current = current.next
+        }
+
+        return arr
+      }
+
     }
 
     let L1 = new ListNode()
     L1.headAppend(2)
     L1.headAppend(3)
-    // L1.headAppend(4)
+    L1.headAppend(4)
 
-    // L1.append(5)
-    // L1.append(6)
-    // L1.append(7)
+    L1.append(5)
+    L1.append(6)
+    L1.append(7)
 
     // L1.insert(6, 100)
 
-    L1.removeEl(2)
+    // L1.removeEl(2)
+    // console.log(L1.findIndex(3))
+    // console.log(L1.removeAtEl(3))
+    console.table(L1.toArray())
     console.log(L1)
   </script>
 
