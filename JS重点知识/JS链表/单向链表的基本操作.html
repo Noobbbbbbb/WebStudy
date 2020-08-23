@@ -63,7 +63,7 @@
         }
         this.length++
       }
-      
+
 
       //任意位置插入
       insert(position, el) {
@@ -101,18 +101,55 @@
         }
         return false
       }
+
+
+      //移除链表指定位置的元素
+
+      removeEl(position) {
+
+        if (position >= 0 && position < this.length && this.head != null) {
+          let current = this.head
+          let previous = null
+          let index = 0
+
+          //position 0的话就是头节点
+
+          if (position === 0) {
+            //头节点指向原头节点的指向的下一个节点
+            this.head = current.next
+
+          } else {
+            while (index++ < position) {
+
+              // 让指针进行移动，pre为待删元素的前一个指针，即pre指向待删元素的前一个元素，current也指向待删元素
+              previous = current
+              current = current.next
+            }
+            //pre的指针指向current指针，即待删元素指针的下一位，完成删除
+            previous.next = current.next
+          }
+
+          this.length--
+
+        }
+
+        return null
+
+      }
     }
 
     let L1 = new ListNode()
     L1.headAppend(2)
     L1.headAppend(3)
-    L1.headAppend(4)
+    // L1.headAppend(4)
 
-    L1.append(5)
-    L1.append(6)
-    L1.append(7)
+    // L1.append(5)
+    // L1.append(6)
+    // L1.append(7)
 
-    L1.insert(6, 100)
+    // L1.insert(6, 100)
+
+    L1.removeEl(2)
     console.log(L1)
   </script>
 
